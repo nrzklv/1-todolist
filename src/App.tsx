@@ -1,31 +1,19 @@
-import React from 'react';
-import './App.css';
+import React from 'react'
+import './App.css'
+import { Todolist } from './Todolist'
 
 function App() {
-  return (
-      <div className="App">
-        <div>
-          <h3>What to learn</h3>
+    const todolistTitle_1 = "What to learn"
+    const todolistTitle_2 = "What to buy"
+    const todolistTitle_3 = "What to read"
 
-          <div>
-            <input/>
-            <button>+</button>
-          </div>
-
-          <ul>
-            <li><input type="checkbox" checked={true}/> <span>HTML&CSS</span></li>
-            <li><input type="checkbox" checked={true}/> <span>JS</span></li>
-            <li><input type="checkbox" checked={false}/> <span>React</span></li>
-          </ul>
-
-          <div>
-            <button>All</button>
-            <button>Active</button>
-            <button>Completed</button>
-          </div>
+    return (
+        <div className="App">
+            <Todolist title= {todolistTitle_1}/>
+            <Todolist title= {todolistTitle_2}/>
+            <Todolist title= {todolistTitle_3}/>
         </div>
-      </div>
-  );
+    )
 }
 
-export default App;
+export default App

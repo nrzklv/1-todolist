@@ -1,28 +1,35 @@
 import React from 'react'
+import {TaskType} from "./App";
 
-type PropsType = {
+type TodolistPropsType = {
     title: string
+    tasks: Array<TaskType>
 }
 
-export const Todolist = (props:PropsType) => {
+export function Todolist (props:TodolistPropsType) {
+
+    const tasksList: Array<JSX.Element> = props.tasks.map(t => {
+        return (
+            <li>
+                <input type="checkbox" checked={t.isDone}/>
+                <span>{t.title}</span>
+            </li>
+        )
+    })
+
     return (
         <div>
             <h3>{props.title}</h3>
+
             <div>
                 <input/>
                 <button>+</button>
             </div>
+
             <ul>
-                <li>
-                    <input type="checkbox" checked={true} /> <span>HTML&CSS</span>
-                </li>
-                <li>
-                    <input type="checkbox" checked={true} /> <span>JS</span>
-                </li>
-                <li>
-                    <input type="checkbox" checked={false} /> <span>React</span>
-                </li>
+                {tasksList}
             </ul>
+
             <div>
                 <button>All</button>
                 <button>Active</button>
